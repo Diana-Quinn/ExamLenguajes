@@ -1,3 +1,57 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<ion-header>
+  AGENDA
+</ion-header><div class="Info">
+  <p align="center">Registro</p>
+  <p align="center">Completa los datos requeridos para registrar... </p>
+  </div>
+  
+  <ion-content padding>
+    <div class="proyecto">
+      <ion-card>
+       <ion-item>
+        <ion-label position="floating">Nombre del Evento</ion-label>
+        <ion-input [(ngModel)]="nombre" name="nombre" placeholder="su nombre"></ion-input>
+       </ion-item> 
+      </ion-card>
+  
+      <ion-card>
+       <ion-item>
+          <ion-label position="floating">Descripcion</ion-label>
+          <ion-input [(ngModel)]="descripcion" name="descripcion" placeholder="su descripcion"></ion-input>
+       </ion-item>
+      </ion-card>
+  
+      <ion-card>
+       <ion-item>
+          <ion-label position="floating"> Ingresa la fecha </ion-label> 
+          <ion-input [(ngModel)]="fecha" type="date" name="fecha" value="" min="1997-01-01" max="2030-12-31"></ion-input>
+       </ion-item>
+      </ion-card>
+  
+      <ion-card>
+       <ion-item>
+         <ion-label position="floating">Hora</ion-label>
+         <ion-input [(ngModel)]="hora" type="time" name="hora" min="09:00" max="18:00" required> </ion-input>
+       </ion-item>
+      </ion-card>
+  
+      <ion-card>
+        <ion-item>
+          <ion-button (click)="SendInfo()">Actualizar</ion-button>
+        </ion-item>  
+      </ion-card>
+  
+     <ion-card *ngIf="datos.length > 0">
+       <ion-row>
+         <ion-col size=3>Nombre Evento</ion-col> <ion-col size=3>Descripcion</ion-col> <ion-col size=3>Fecha</ion-col> <ion-col size=3>Hora</ion-col>
+       </ion-row>
+  
+       <ion-row *ngFor="let dato of datos">
+          <ion-col size="3">{{dato.nombre}}</ion-col>
+          <ion-col size="3">{{dato.descripcion}}</ion-col>
+          <ion-col size="3">{{dato.fecha}}</ion-col>
+          <ion-col size="3">{{dato.hora}}</ion-col>
+       </ion-row>
+     </ion-card>
+   </div>
+   </ion-content>
