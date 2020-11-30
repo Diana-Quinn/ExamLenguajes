@@ -18,12 +18,12 @@ export class NuevoEventoComponent implements OnInit {
   constructor(private cookie: CookieService) { }
 
   ngOnInit() {
-    this.datos = JSON.parse(this.cookie.get('cookie-eventos'));
+    this.actualizarDatos();
   }
 
   SendInfo(): void{
 
-    this.datos = JSON.parse(this.cookie.get('cookie-eventos'));
+    this.actualizarDatos();
 
     try{
       this.datos.forEach(evento => {
@@ -48,7 +48,11 @@ export class NuevoEventoComponent implements OnInit {
   }
 
   actualizarDatos(){
-    this.datos = JSON.parse(this.cookie.get('cookie-eventos'));
+      try{
+          this.datos = JSON.parse(this.cookie.get('cookie-eventos'));
+      }catch (e){
+          this.datos = [];
+      }
   }
 
 }

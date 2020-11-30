@@ -21,16 +21,20 @@ export class ModificarEventoComponent implements OnInit {
   constructor(private cookie: CookieService) { }
 
   ngOnInit() {
-    this.datos = JSON.parse(this.cookie.get('cookie-eventos'));
+    this.actualizarDatos();
   }
 
   actualizarDatos(){
-    this.datos = JSON.parse(this.cookie.get('cookie-eventos'));
+    try{
+      this.datos = JSON.parse(this.cookie.get('cookie-eventos'));
+    }catch (e){
+      this.datos = [];
+    }
   }
 
   modificar(i: number): void{
 
-    this.datos = JSON.parse(this.cookie.get('cookie-eventos'));
+    this.actualizarDatos();
 
     try{
       this.datos.forEach((evento, index) => {

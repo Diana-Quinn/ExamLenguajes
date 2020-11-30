@@ -19,16 +19,21 @@ export class EliminarEventoComponent implements OnInit {
   constructor(private cookie: CookieService) { }
 
   ngOnInit() {
-    this.datos = JSON.parse(this.cookie.get('cookie-eventos'));
+    this.actualizarDatos();
   }
 
   eliminar(i: number){
+    this.actualizarDatos();
     this.datos.splice(i, 1);
     this.cookie.set('cookie-eventos', JSON.stringify(this.datos));
   }
 
   actualizarDatos(){
-    this.datos = JSON.parse(this.cookie.get('cookie-eventos'));
+    try{
+      this.datos = JSON.parse(this.cookie.get('cookie-eventos'));
+    }catch (e){
+      this.datos = [];
+    }
   }
 
 
