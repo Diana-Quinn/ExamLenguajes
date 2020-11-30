@@ -1,17 +1,17 @@
-<ion-card>
-  <ion-item>
-    <ion-button>Registrar</ion-button>
-  </ion-item>  
-</ion-card>
+<ion-content>
+  <ion-header>
+  <ion-toolbar>
+    <ion-back-button></ion-back-button>
+    <div class="btns">
+      <ion-button class="btn" routerLink="/home/registrar" >Registrar</ion-button>
+      <ion-button class="btn" routerLink="/home/modificar" >Modificar</ion-button>
+      <ion-button class="btn" routerLink="/home/eliminar" >Eliminar</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+  <ion-item></ion-item>
 
-<ion-card>
-  <ion-item>
-    <ion-button>Eliminar</ion-button>
-  </ion-item>  
-</ion-card>
-
-<ion-card>
-  <ion-item>
-    <ion-button>Modificar</ion-button>
-  </ion-item>  
-</ion-card>
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
+</ion-content>
+</ion-content>

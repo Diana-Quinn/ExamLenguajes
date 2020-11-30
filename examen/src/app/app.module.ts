@@ -11,14 +11,21 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { FormsModule } from '@angular/forms';
 
+import { CommonModule } from '@angular/common';
+import {NuevoEventoComponent} from './nuevo-evento/nuevo-evento.component';
+import {CookieService} from 'ngx-cookie-service';
+import {ModificarEventoComponent} from './modificar-evento/modificar-evento.component';
+import {EliminarEventoComponent} from './eliminar-evento/eliminar-evento.component';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NuevoEventoComponent, ModificarEventoComponent, EliminarEventoComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
+  imports: [CommonModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
